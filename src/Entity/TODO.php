@@ -37,6 +37,21 @@ class TODO
      */
     private $estado;
 
+    /**
+     * TODO constructor.
+     * @param $nombre
+     * @param $fecha_tope
+     * @param $estado
+     */
+    public function __construct($nombre, $fecha_tope, $estado)
+    {
+        $this->nombre = $nombre;
+        $this->fecha_creacion = new \DateTime();
+        $this->fecha_tope = $fecha_tope;
+        $this->estado = $estado;
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
