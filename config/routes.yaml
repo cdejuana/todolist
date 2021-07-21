@@ -1,3 +1,6 @@
+login:
+    path: /
+    controller: App\Controller\TodoController::login
 index:
     path: /
     controller: App\Controller\TodoController::index

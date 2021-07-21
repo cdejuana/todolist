@@ -1,4 +1,4 @@
-const formulario = document.getElementById('form');
+const formulario = document.getElementById('formTareas');
 const campoTexto = document.getElementById('campoTexto');
 const contenedorLista = document.getElementById('contenedorLista');
 const template = document.getElementById('plantilla');
