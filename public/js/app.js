@@ -6,6 +6,9 @@ const template = document.getElementById('plantilla');
 
 let tareas = {};
 
+contenedorLista.addEventListener('click', e => {
+    btnAccion(e);
+})
 formulario.addEventListener('submit', ev => {
     ev.preventDefault();
     construyeTarea(ev);
@@ -38,8 +41,16 @@ const mostrarTareas = () => {
         parrafo.textContent = tarea.texto;
         divTarea.appendChild(parrafo);
         const botones = document.createElement('h3');
-        botones.innerHTML = '<i class="fas fa-check-circle text-success"></i>\n' +
-            '                            <i class="fas fa-minus-circle text-danger"></i>'
+        const botonMarcar = document.createElement('i');
+        botonMarcar.setAttribute('class', 'far fa-circle text-secondary');
+        botonMarcar.dataset.id = tarea.id;
+        //botonMarcar.setAttribute('class', '');
+        botones.appendChild(botonMarcar);
+        const botonBorrar = document.createElement('i');
+        botonBorrar.setAttribute('class', 'fas fa-minus-circle text-danger');
+        botonBorrar.dataset.id = tarea.id;
+        //botonBorrar.setAttribute('class', '');
+        botones.appendChild(botonBorrar);
         divTarea.appendChild(botones);
         lista.appendChild(divTarea);
         lista.appendChild(salto);
@@ -47,3 +58,10 @@ const mostrarTareas = () => {
     contenedorLista.appendChild(lista);
 }
 
+const btnAccion = e => {
+    if (e.target.classList.contains('fa-circle')){
+        tareas[e.target.dataset.id].estado = true;
+        mostrarTareas();
+    }
+    e.stopPropagation();
+}
