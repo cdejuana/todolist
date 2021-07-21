@@ -6,14 +6,40 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link rel="stylesheet" href="css/app.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+
+
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <div class="container">
+                <h1 class="text-center">TODO LIST</h1>
+                <form id="form">
+                    <div class="col-12 d-flex justify-content-center">
+                    <input id="campoTexto" type="text" placeholder="Siguiente tarea" class="form-control col-6" autofocus>
+                    <button type="submit" class="btn btn-primary col-3">Añadir</button>
+                    </div>
+                </form>
+                <div id="contenedorLista">
+                </div>
+
+                <template id="plantilla">
+                    <div class="alert bg-light d-flex justify-content-between align-items-center col-9">
+                        <p id="parrafo" class="m-0">Tarea 1</p>
+                        <h3>
+                            <i class="fas fa-check-circle text-success"></i>
+                            <i class="fas fa-minus-circle text-danger"></i>
+                        </h3>
+                    </div>
+                </template>
+            </div>
+        {% endblock %}
     </body>
+    <script src="js/app.js"></script>
 </html>

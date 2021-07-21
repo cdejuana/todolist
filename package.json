@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "bootstrap": "^5.0.2"
+  },
+  "dependencies": {
+    "@symfony/webpack-encore": "^0.21.0",
+    "stimulus": "^2.0.0"
   }
 }
